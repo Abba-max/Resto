@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-i)9yu@!1e-iumnllpj#9yq(0e#9a!l59s4pc^&9=1v)_x*g*dw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['eyang-resto-1.onrender.com','127.0.0.1','resto-rust.vercel.app']
 
