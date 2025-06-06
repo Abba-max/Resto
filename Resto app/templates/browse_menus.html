@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'assets/css/browse_menus.css' %}">
+    <logon rel="icon" href="{% static 'assets/img/DJI_0076.jpg' %}" type="image/jpg">
+    <title>Browse Menus</title>
+</head>
+<body>
+    <header>
+       
+  <div  >
+      {% if user.is_authenticated %}
+       <h1> Welcome {{user.username}} to Eyang Food Delivery Services</h1>
+        <h2>Explore our delicious menu options and order your favorite dishes!</h2>
+        <div class="login-div">    
+        <a class= "btn login-btn" href='/'><p>HOME</p><a/>   
+            <a href="{% url 'view_cart' %}" class="btn login-btn">Go to Cart</a>
+    
+            {% comment %} <img src="{% static 'assets/img/logo.png' %}" alt="" class="logo"> {% endcomment %}
+         
+
+                <form method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button  type="submit" class="btn login-btn">Logout</button>
+                </form>
+            </div>   
+             
+            {% else %}
+             <h1> Welcome to Eyang Food Delivery Services</h1>
+        <h2>Explore our delicious menu options and order your favorite dishes!</h2>
+        <div class="login-div"> 
+        <a class= "btn login-btn" href='/'><p>HOME</p><a/>          
+        <a href="{% url 'login' %}" class="btn login-btn">Login</a>
+                <a href="{% url 'registration' %}" class="btn login-btn">Register</a>
+        </div>   
+                {% endif %}
+        
+        </div>
+        
+        <div>
+        </div>
+    </header>
+    <main>
+
+        <!-- Menu List -->
+        <section class="menu-list">
+  {% if user.is_authenticated %}
+           <form method="get" class="filters" style="margin-bottom:2rem;">
+    <label for="vendor">Vendor:</label>
+    <select name="vendor" id="vendor">
+        <option value="">All</option>
+        {% for vendor in vendors %}
+            <option value="{{ vendor.id }}" {% if vendor.id|stringformat:"s" == selected_vendor %}selected{% endif %}>{{ vendor.restaurant_name }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="min_price">Min Price:</label>
+    <input type="number" name="min_price" id="min_price" value="{{ min_price|default_if_none:'' }}" min="0" step="any">
+
+    <label for="max_price">Max Price:</label>
+    <input type="number" name="max_price" id="max_price" value="{{ max_price|default_if_none:'' }}" min="0" step="any">
+
+    <button type="submit" class="login-btn">Filter</button>
+    <a href="{% url 'browse_menus' %}" class="login-btn" style="background:#aaa;">Reset</a>
+</form>
+{%endif%}
+            <ul>
+                {% for menu in menus %}
+                    <li class="menu-item">
+                        {% if menu.image %}
+                            <img src="{{ menu.image.url }}" alt="{{ menu.name }}" class="menu-image">
+                        {% else %}
+                            <img src="{% static 'assets/img/menu-item-1.png' %}" alt="Default Image" class="menu-image">
+                        {% endif %}
+                        <div class="menu-details">
+                            <h3>{{ menu.name }} ({{menu.vendor}})</h3>
+                            <p>{{ menu.description }}</p>
+                            <p class="price">Price: FCFA {{ menu.price }}</p>
+                            <a href='{% url 'menu_details' menu.id %}'><p>Menu Details</p></a>
+                             <p>{{ menu.vendor.contact }}</p>
+                            <a class ="btn login-btn" href="{% url 'place_order' menu.id %}" >Order Now</a>
+                            <form method="post" action="{% url 'add_to_cart' menu.id %}">
+    {% csrf_token %}
+    <input type="number" name="quantity" value="1" min="1" style="width:50px;">
+    <button  type="submit" class="btn login-btn">Add to Cart</button>
+</form>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+</body>
+
+<footer class="footer">
+<p> Rights Reserved</p>
+</footer>
+
+</html>
+
+
+

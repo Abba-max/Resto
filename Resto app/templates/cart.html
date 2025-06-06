@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="{% static 'assets/css/cart.css' %}">
+</head>
+<body>
+    <div class="cart-container">
+        <h1>Your Cart</h1>
+        {% if restaurant_groups %}
+            {% for vendor_id, group in restaurant_groups.items %}
+                <div class="cart-restaurant-group">
+                    <h2>{{ group.vendor_name }}</h2>
+                    <table class="cart-table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Menu Name</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in group.items %}
+                            <tr>
+                                <td>
+                                    {% if item.menu.image %}
+                                        <img src="{{ item.menu.image.url }}" alt="{{ item.menu.name }}" class="cart-img">
+                                    {% else %}
+                                        <img src="{% static 'assets/img/default-menu-image.png' %}" alt="Default" class="cart-img">
+                                    {% endif %}
+                                </td>
+                                <td>{{ item.menu.name }}</td>
+                                <td>{{ item.quantity }}</td>
+                                <td>FCFA {{ item.menu.price }}</td>
+                                <td>FCFA {{ item.menu.price|floatformat:2|add:"0"|floatformat:2|floatformat:2|floatformat:2|add:item.quantity|floatformat:2 }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <form method="post" action="{% url 'place_cart_order' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="vendor_id" value="{{ vendor_id }}">
+                        <div class="cart-contact">
+                            <label for="contact_{{ vendor_id }}">Contact Info:</label>
+                            <input type="text" name="contact" id="contact_{{ vendor_id }}" required>
+                            <label for="contact_{{ vendor_id }}">Location Info:</label>
+                            <input type="text" name="location" id="location_{{ vendor_id }}" required>
+                        </div>
+                        <button type="submit" class="cart-btn">Place Order for {{ group.vendor_name }}</button>
+                    </form>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Your cart is empty.</p>
+        {% endif %}
+        <a href="{% url 'browse_menus' %}" class="cart-back">Continue Shopping</a>
+    </div>
+</body>
+</html>
