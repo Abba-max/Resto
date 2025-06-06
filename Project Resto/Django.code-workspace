@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"name": "Django",
+			"path": "../../../Django Tutorial/Django"
+		},
+		{
+			"name": "Projects with HTML, CSS and Java Script",
+			"path": "../../../Atelier Dev web/Projects with HTML, CSS and Java Script"
+		},
+		{
+			"name": "Computer Engineering Project",
+			"path": "../.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Projects with HTML, CSS and Java Script",
+		"liveServer.settings.port": 5501
+	}
+}
