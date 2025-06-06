@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+import environ
+import dj_database_url   
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-i)9yu@!1e-iumnllpj#9yq(0e#9a!l59s4pc^&9=1v)_x*g*dw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['eyang-resto-1.onrender.com','127.0.0.1','resto-rust.vercel.app']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -75,15 +77,21 @@ WSGI_APPLICATION = 'Restaurant_reserve.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-   'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'RestoEyang',
-        'USER':'postgres',
-        'PASSWORD':'1234567',
-        'HOST':'localhost',
-        'PORT':'5432',
-    }
+# DATABASES = {
+#    'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME':'RestoEyang',
+#         'USER':'postgres',
+#         'PASSWORD':'1234567',
+#         'HOST':'localhost',
+#         'PORT':'5432',
+#     }
+
+
+# }
+
+DATABASES ={
+    'default': dj_database_url.parse(env('DATABASE_URL'))
 }
 
 LOGIN_URL = '/login/'
