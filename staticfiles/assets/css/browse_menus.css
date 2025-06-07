@@ -109,7 +109,8 @@ header p {
 .menu-list ul {
     list-style: none;
     padding: 0;
-    display: flex;
+    display: grid;
+    justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2cm;
     margin: 0 auto;
