@@ -3,29 +3,39 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f8f9fa;
-   
 }
 
 header {
     background-color: #343a40;
     color: #fff;
-    padding: 1rem;
+    padding: 1rem 2vw;
     text-align: center;
-    border-radius:50px;
-    margin:auto;
+    border-radius: 30px;
+    margin: 1rem auto;
+    max-width: 900px;
+    width: calc(100% - 2vw);
+    box-sizing: border-box;
 }
 
 header nav a {
     color: #fff;
     margin: 0 1rem;
     text-decoration: none;
+    display: inline-block;
+    padding: 0.4em 0.8em;
+    font-size: 1rem;
 }
 
 main {
     padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-#menus-section, #orders-section {
+#menus-section,
+#orders-section {
     margin-bottom: 2rem;
 }
 
@@ -33,46 +43,78 @@ main {
     border: 1px solid #ddd;
     padding: 1rem;
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    background: #fff;
+    border-radius: 12px;
+    transition: box-shadow 0.2s;
+}
+
+.menu-item:hover {
+    box-shadow: 0 2px 10px rgba(52,58,64,0.12);
 }
 
 .menu-item img {
     width: 100px;
     height: 100px;
     object-fit: cover;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #f1f1f1;
 }
 
+.menu-item-content {
+    flex: 1 1 200px;
+    min-width: 0;
+}
 
-
-/* 
-/.edit-button */
-
-.edit-btn {
-    background-color: #007bff;
-    color: rgb(30, 190, 57);
-    border: none;
+.edit-btn, .delete-btn, .add-menu-btn {
+    font-size: 1rem;
     padding: 0.5rem 1rem;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.15s, color 0.15s;
 }
 
+.edit-btn {
+    background-color: #28a745;
+    color: white;
+}
 
-/* Delete Button */
 .delete-btn {
     background-color: #dc3545;
     color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
 }
 
 .delete-btn:hover {
     background-color: #721a23;
 }
 
-/* Orders Section */
+.add-menu-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.add-menu-btn:hover {
+    background-color: #218838;
+}
+
+#add-menu-section {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
 #orders-section {
     margin-top: 2rem;
+    overflow-x: auto;
+    background: #fff;
+    border-radius: 12px;
+    padding: 1rem 0.5rem;
 }
 
 #orders-section table {
@@ -81,12 +123,15 @@ main {
     margin-top: 1rem;
     background-color: #fff;
     border: 1px solid #ddd;
+    min-width: 500px;
 }
 
-#orders-section th, #orders-section td {
+#orders-section th,
+#orders-section td {
     border: 1px solid #ddd;
     padding: 0.75rem;
     text-align: left;
+    word-break: break-word;
 }
 
 #orders-section th {
@@ -107,78 +152,108 @@ main {
     color: #333;
 }
 
-/* Add Menu Section */
-#add-menu-section {
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-.add-menu-btn {
-    background-color: #28a745;
-    color: white;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.edit-btn{
-    background-color: #28a745;
-    color: white;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.add-menu-btn:hover {
-    background-color: #218838;
-}
-
-@media (max-width: 900px) {
+/* Responsive styles */
+@media (max-width: 1024px) {
     main {
         padding: 1rem;
     }
     .menu-item {
         flex-direction: column;
         align-items: flex-start;
+        gap: 0.5rem;
+    }
+    .menu-item img {
+        width: 90px;
+        height: 90px;
+    }
+    #orders-section table,
+    #orders-section th,
+    #orders-section td {
+        font-size: 0.97rem;
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 900px) {
+    header {
+        border-radius: 18px;
+        padding: 0.8rem 2vw;
+        font-size: 1.05rem;
     }
     .menu-item img {
         width: 80px;
         height: 80px;
     }
-    #orders-section table, #orders-section th, #orders-section td {
-        font-size: 0.95rem;
+    main {
         padding: 0.5rem;
+    }
+}
+
+@media (max-width: 700px) {
+    .menu-item img {
+        width: 70px;
+        height: 70px;
+    }
+    .edit-btn, .delete-btn, .add-menu-btn {
+        font-size: 0.97rem;
+        padding: 0.4rem 0.8rem;
+    }
+    #orders-section table,
+    #orders-section th,
+    #orders-section td {
+        font-size: 0.92rem;
+        padding: 0.4rem;
     }
 }
 
 @media (max-width: 600px) {
     header {
-        padding: 0.5rem;
-        font-size: 1rem;
-        border-radius: 20px;
+        padding: 0.5rem 1vw;
+        font-size: 0.97rem;
+        border-radius: 11px;
     }
     main {
         padding: 0.2rem;
     }
     .menu-item {
-        padding: 0.5rem;
+        padding: 0.6rem 0.3rem;
     }
     .menu-item img {
         width: 60px;
         height: 60px;
     }
-    #orders-section table, #orders-section th, #orders-section td {
+    .edit-btn, .delete-btn, .add-menu-btn {
+        font-size: 0.95rem;
+        padding: 0.3rem 0.7rem;
+    }
+    #orders-section {
+        margin-top: 1rem;
+        padding: 0.4rem 0.1rem;
+    }
+    #orders-section table,
+    #orders-section th,
+    #orders-section td {
         font-size: 0.85rem;
         padding: 0.3rem;
     }
-    .add-menu-btn, .edit-btn, .delete-btn {
-        font-size: 0.95rem;
-        padding: 0.3rem 0.7rem;
+}
+
+@media (max-width: 500px) {
+    header {
+        border-radius: 6px;
+        padding: 0.4rem 0.2rem;
+        font-size: 0.97rem;
+    }
+    .menu-item img {
+        width: 48px;
+        height: 48px;
+    }
+    #orders-section table {
+        font-size: 0.8rem;
+        min-width: 350px;
+    }
+    .edit-btn, .delete-btn, .add-menu-btn {
+        font-size: 0.85rem;
+        padding: 0.22rem 0.5rem;
     }
 }

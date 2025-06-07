@@ -21,11 +21,16 @@
             <h2>Your Menus</h2>
             {% for menu in menus %}
                 <div class="menu-item">
-                    {% if menu.image%}
-                        <img src="{{ menu.image.url }}" alt="{{ menu.name }}">
-                    {% else %}
-                        <img src="{% static 'assets/img/default-menu-image.png' %}" alt="Default Image">
-                    {% endif %}
+                   {% if menu.image %}
+                            <img src="{{ menu.image.url }}"
+                                 alt="{{ menu.name }}"
+                                 class="menu-image"
+                                 onerror="this.onerror=null;this.src='{% static 'assets/img/menu-item-1.png' %}';">
+                        {% else %}
+                            <img src="{% static 'assets/img/menu-item-1.png' %}"
+                                 alt="Default Image"
+                                 class="menu-image">
+                        {% endif %}
                     <h3>{{ menu.name.url }}</h3>
                     <p>{{ menu.description }}</p>
                     <p>Price:  FCFA {{ menu.price }}</p>
