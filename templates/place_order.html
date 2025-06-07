@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order {{ menu.name }}</title>
+    <link rel="stylesheet" href="{% static 'assets/css/place_order.css' %}">
+</head>
+<body  justify-content:center>
+    <center>
+    <div class="container">
+        <div class="order-card">
+            <div class="order-image">
+                {% if menu.image %}
+                    <img src="{{ menu.image.url }}" alt="{{ menu.name }}">
+                {% else %}
+                    <img src="{% static 'assets/img/menu-item-1.png' %}" alt="Default Image">
+                {% endif %}
+            </div>
+            <div class="order-info">
+                <h2>Order: {{ menu.name }}</h2>
+                <p class="price">Price: FCFA {{ menu.price }}</p>
+                <form method="post">
+                    {% csrf_token %}
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+                    <input type="text" name="contact" placeholder="Your contact" required>
+                    <input type="text" name="location" placeholder="Residence and room " required>
+                    <button type="submit" class="btn order-btn">Place Order</button>
+                    
+                    <a href="{% url 'browse_menus' %}" class="btn back-btn"><br><br>Back to menu</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</center>
+</body>
+</html>
