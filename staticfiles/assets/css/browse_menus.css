@@ -24,6 +24,7 @@ header {
     margin-bottom: 5rem;
     margin: 50px;
     border-radius: 500px;
+    border-style:double;
     background-image: url(../img/DJI_0076.jpg);
     background-color: beige;
 }
@@ -88,31 +89,21 @@ header p {
 
 /* Filters */
 .filters {
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
     margin-bottom: 2rem;
 }
-
-.filters h3 {
-    margin-bottom: 1rem;
+.filters label {
+    font-weight: 500;
 }
-
-.filters ul {
-    list-style: none;
-    padding: 0;
-    display: inline-flex;
-    gap: 1rem;
+.filters input,
+.filters select {
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
-
-.filters li a {
-    text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
-}
-
-.filters li a:hover {
-    text-decoration: underline;
-}
-
 /* Menu List */
 .menu-list ul {
     list-style: none;
@@ -126,8 +117,9 @@ header p {
 
 .menu-item {
     background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    border-style:groove;
+    box-shadow: 0 10px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.2s ease-in-out;
     margin-bottom: 2rem;
@@ -137,7 +129,7 @@ header p {
 }
 
 .menu-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
 }
 
 .menu-image {
