@@ -27,6 +27,11 @@
                     <input type="number" id="quantity" name="quantity" min="1" value="1" required>
                     <input type="text" name="contact" placeholder="Your contact" required>
                     <input type="text" name="location" placeholder="Residence and room " required>
+                    {% if order_success %}
+                     <div class="success-message">
+                          Order placed successfully!
+                     </div>
+                    {% endif %}
                     <button type="submit" class="btn order-btn">Place Order</button>
                     
                     <a href="{% url 'browse_menus' %}" class="btn back-btn"><br><br>Back to menu</a>

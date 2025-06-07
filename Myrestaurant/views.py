@@ -33,7 +33,7 @@ def browse_menus(request):
         'min_price': min_price,
         'max_price': max_price,
     }
-    return render(request, 'browse_menus.html', {'menus': menus})
+    return render(request, 'browse_menus.html', context)
 
 
 @login_required
@@ -43,19 +43,25 @@ def place_order(request, menu_id):
         client = Client.objects.get(user=request.user)
     except ObjectDoesNotExist:
         messages.error(request, "You need to login as a client to place orders.")
-        return redirect('login')  # Redirect to registration
+        return redirect('login')
+
+    order_success = False  # Track if order was just placed
 
     if request.method == "POST":
         quantity = int(request.POST.get("quantity", 1))
         contact = request.POST.get("contact")
         location = request.POST.get("location")
-        if not contact or location:
+        if not contact or not location:
             messages.error(request, "Contact and Location information is required.")
-            return render(request, 'place_order.html', {'menu': menu})
-        Order.objects.create(client=client, menu=menu, quantity=quantity, contact=contact,location=location)
-        messages.info(request, 'Order placed successfully')
+        else:
+            Order.objects.create(client=client, menu=menu, quantity=quantity, contact=contact, location=location)
+            order_success = True
 
-    return render(request, 'place_order.html', {'menu': menu})
+    context = {
+        'menu': menu,
+        'order_success': order_success,
+    }
+    return render(request, 'place_order.html', context)
 
 
 # Vendor view for managing menus
