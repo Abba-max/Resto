@@ -110,6 +110,7 @@ header p {
     list-style: none;
     padding: 0;
     display: grid;
+    justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2cm;
     margin: 0 auto;
