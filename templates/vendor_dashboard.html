@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'assets/css/vendor_dashboard.css' %}">
+    <title>{{vendor.name}} Dashboard</title>
+</head>
+<body>
+    <header>
+        <h1>Vendor Dashboard</h1>
+        <nav>
+            <a href="{% url 'vendor_dashboard' %}">Home</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <!-- Menus Section -->
+        <section id="menus-section">
+            <h2>Your Menus</h2>
+            {% for menu in menus %}
+                <div class="menu-item">
+                    {% if menu.image%}
+                        <img src="{{ menu.image.url }}" alt="{{ menu.name }}">
+                    {% else %}
+                        <img src="{% static 'assets/img/default-menu-image.png' %}" alt="Default Image">
+                    {% endif %}
+                    <h3>{{ menu.name.url }}</h3>
+                    <p>{{ menu.description }}</p>
+                    <p>Price:  FCFA {{ menu.price }}</p>
+                  <div style="display: flex;gap: 50px; margin-left: 5px;">
+    <form method="POST" action="{% url 'delete_menu' menu.id %}">
+        {% csrf_token %}
+        <button type="submit" class="delete-btn">Delete</button>
+    </form>
+    <a href="{% url 'edit_menu' menu.id %}" class="edit-btn">Edit Menu</a>
+</div>
+                </div>
+            {% endfor %}
+        </section>
+
+        <!-- Add Menu Section -->
+        <section id="add-menu-section">
+            <h2>Add a New Menu</h2>
+            <a href="{% url 'manage_menu_create' %}" class="btn add-menu-btn">Add Menu</a>
+        </section>
+
+        <!-- Orders Section -->
+        <section id="orders-section">
+            <h2>Orders List</h2>
+            {% if orders %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Order Date</th>
+                            <th>Client Name</th>
+                            <th>Dish</th>
+                            <th>Quantity</th>
+                            <th>Location</th>
+                            <th>Contact</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       {% for order in orders %}
+<tr>
+    <td>{{ order.id }}</td>
+    <td>{{ order.date|date:"Y-m-d H:i" }}</td>
+    <td>{{ order.client.user.username }}</td>
+    <td>{{ order.menu.name }}</td>
+    <td>{{ order.quantity }}</td>
+    <td>{{ order.client.location }}</td>
+    <td>{{ order.client.contact }}</td>
+   {% if order.status != "delivered" %}
+    <td style="background-color:red;">{{ order.status }}</td>
+    <td>
+        
+        <form method="post" action="{% url 'mark_order_delivered' order.id %}">
+            {% csrf_token %}
+            <button type="submit" class="edit-btn">Mark as Delivered</button>
+        </form>
+       
+    </td>
+     {% else %}
+       <td style="background-color:green;">delivered</td>
+        {% endif %}
+</tr>
+
+
+{% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No orders available.</p>
+            {% endif %}
+        </section>
+    </main>
+
+    {% if orders|length > 0 %}
+    <div class="notification">
+        You have {{ orders|length }} order{{ orders|length|pluralize }}.
+    </div>
+{% endif %}
+
+</body>
+</html>

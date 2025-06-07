@@ -1,0 +1,383 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    font-style: initial;
+    background-color: #050505;
+    color: rgb(24, 23, 22);
+    text-align: center;
+    height: 200px;
+    padding: 2rem 1rem;
+    margin-top: 0;
+    margin-bottom: 5rem;
+    margin: 50px;
+    border-radius: 500px;
+    background-image: url(../img/DJI_0076.jpg);
+    background-color: beige;
+}
+
+.login-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    flex-wrap: wrap;
+}
+
+.list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.logo {
+    width: 10px;
+    height: auto;
+    margin-bottom: 0.5rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin: 0.5rem 0 0;
+}
+
+/* Search Bar */
+.search-bar {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.search-bar input {
+    width: 300px;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 0.5rem;
+}
+
+.search-bar button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #0056b3;
+}
+
+/* Filters */
+.filters {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.filters h3 {
+    margin-bottom: 1rem;
+}
+
+.filters ul {
+    list-style: none;
+    padding: 0;
+    display: inline-flex;
+    gap: 1rem;
+}
+
+.filters li a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.filters li a:hover {
+    text-decoration: underline;
+}
+
+/* Menu List */
+.menu-list ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2cm;
+    margin: 0 auto;
+    max-width: 1300px;
+}
+
+.menu-item {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+}
+
+.menu-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.menu-details {
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+}
+
+.menu-details h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.menu-details p {
+    margin: 0.5rem 0;
+    color: #666;
+}
+
+.menu-details .price {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.menu-actions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.menu-actions .btn {
+    text-decoration: none;
+    padding: 1rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.order-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.order-btn:hover {
+    background-color: #3166b6;
+}
+
+.details-btn {
+    background-color: #34b9ce;
+    color: white;
+}
+
+.details-btn:hover {
+    background-color: #138496;
+}
+
+/* Login Section */
+.login-section {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    margin: 2rem auto;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-section h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.login-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.login-section label {
+    font-weight: bold;
+    color: #555;
+}
+
+.login-section input,
+.login-section select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.login-section .btn {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.login-section .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Auth Section */
+.auth-section {
+    text-align: right;
+    margin-top: 1rem;
+}
+
+.auth-section p {
+    display: inline-block;
+    margin-right: 1rem;
+    font-size: 1rem;
+    color: #333;
+}
+
+.auth-section .btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.auth-section .login-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.auth-section .login-btn:hover {
+    background-color: #0056b3;
+}
+
+.auth-section .logout-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.auth-section .logout-btn:hover {
+    background-color: #c82333;
+}
+
+.login-btn {
+    display: inline-block;
+    margin-left: 16px;
+    padding: 8px 20px;
+    background: #1976d2;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color: #333;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    color: rgb(10, 12, 14);
+    text-align: center;
+    padding: 2rem 1rem;
+    height: 2px;
+    width: 500px;
+    border-radius: 100px;
+}
+
+/* Responsive Design */
+@media (max-width: 1100px) {
+    .menu-list ul {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5cm;
+    }
+    header {
+        margin: 20px;
+        height: auto;
+        border-radius: 100px;
+        padding: 1rem 0.5rem;
+    }
+}
+
+@media (max-width: 800px) {
+    .menu-list ul {
+        grid-template-columns: 1fr;
+        gap: 1cm;
+    }
+    .menu-item {
+        width: 95vw;
+        max-width: 400px;
+        margin: 0 auto 2rem auto;
+    }
+    .login-div {
+        gap: 30px;
+    }
+    header {
+        margin: 10px;
+        padding: 1rem 0.2rem;
+        border-radius: 60px;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        font-size: medium;
+        margin: 5px;
+        padding: 0.5rem 0.2rem;
+        border-radius: 30px;
+        height: auto;
+    }
+    .menu-item {
+        width: 99vw;
+        padding: 0.5rem;
+    }
+    .menu-image {
+        height: 120px;
+    }
+    .login-div {
+        flex-direction: column;
+        gap: 10px;
+    }
+    h1, h2 {
+        font-size: 1.2rem;
+    }
+    .footer {
+        width: 90vw;
+        padding: 1rem 0.5rem;
+    }
+}

@@ -1,0 +1,74 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+     <link rel="stylesheet" href="{% static 'assets/css/login.css' %}">
+
+</head>
+<body>
+    <form style="display:flex; align-items:center; justify-content:center;" method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <center>
+            {% for message in messages %}
+                <h4>{{ message }}</h4>
+            {% endfor %}
+            <h1>Login Page</h1>
+            <h3>Username: <input class="input" type="text" name="username" /></h3>
+           <h3>Role: 
+    <select class="input" name="role" required>
+        <option value="client">Client</option>
+        <option value="vendor">Vendor</option>
+    </select>
+    </h3>
+            <h3>Password: <input class="input" type="Password" name="password" /></h3>
+            <input class = "save-btn" type="submit" name="save" />
+            <h5>If you don't have an account, <a class = "save-btn" class="btn-getstarted" href="{% url 'registration' %}">Sign up</a></h5>
+        </center>
+    </form>
+</body>
+</html>
+
+<style>
+ h1 {
+    font-size: xx-large;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 81, 255);
+}
+
+h4 {
+    color: rgb(255, 60, 0);
+}
+  .input{
+    width: 100%;
+    height: 50px;
+    border-radius: 50px;
+    border: 1px solid rgb(0, 81, 255);
+    padding-left: 10px;
+    font-size: medium;
+    }
+    .save-btn{
+    font-family:Arial, Helvetica, sans-serif
+    width:50%;
+    height: 50px;
+    border-radius: 50px;
+    border-style:groove;
+    border: 1px solid rgb(0, 81, 255);
+    padding-left: 10px;
+    backgrounmd-color:rgb(77, 99, 145);
+    }
+        .input:hover{
+        background-color:rgb(108, 143, 218);
+    }
+
+     .save-btn:hover{
+        background-color:rgb(108, 143, 218);
+    } 
+    body{
+        background-image: url(../img/DJI_0076.jpg);
+    }
+     
+</style>
