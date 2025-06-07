@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os 
-import dj_database_url     
+import dj_database_url  
+from decouple import config    
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,12 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-i)9yu@!1e-iumnllpj#9yq(0e#9a!l59s4pc^&9=1v)_x*g*dw'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(',')
 
 
 # Application definition
@@ -90,7 +91,7 @@ WSGI_APPLICATION = 'Restaurant_reserve.wsgi.application'
 # }
 
 DATABASES ={
-    'default': dj_database_url.parse('postgresql://restomanager:Jg24Fmsr5jQ0st5gecSVCOV6nDlmFcCe@dpg-d11liv7diees73fgurs0-a.oregon-postgres.render.com/restoeyang_0vxx')
+    'default': dj_database_url.parse(config('DATABASE_URL'))
 }
 
 LOGIN_URL = '/login/'
