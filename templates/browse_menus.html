@@ -78,7 +78,6 @@
                         {% endif %}
                         <div class="menu-details">
                             <h3>{{ menu.name }} ({{menu.vendor}})</h3>
-                            <p>{{ menu.description }}</p>
                             <p class="price">Price: FCFA {{ menu.price }}</p>
                             <a href='{% url 'menu_details' menu.id %}'><p>Menu Details</p></a>
                              <p>{{ menu.vendor.contact }}</p>
@@ -96,9 +95,11 @@
     </main>
 </body>
 
+<center>
 <footer class="footer">
-<p> Rights Reserved</p>
+<p> Rights Reserved @GreenSheet2025</p>
 </footer>
+</center>
 
 </html>
 

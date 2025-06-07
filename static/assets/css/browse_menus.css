@@ -18,7 +18,7 @@ header {
     background-color: #050505;
     color: rgb(24, 23, 22);
     text-align: center;
-    height: 200px;
+    height: 100px;
     padding: 2rem 1rem;
     margin-top: 0;
     margin-bottom: 5rem;
@@ -93,6 +93,7 @@ header p {
     flex-wrap: wrap;
     gap: 1rem;
     align-items: center;
+    justify-content: center;
     margin-bottom: 2rem;
 }
 .filters label {
@@ -112,7 +113,7 @@ header p {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2cm;
     margin: 0 auto;
-    max-width: 1300px;
+    max-width: 500px;
 }
 
 .menu-item {
@@ -302,14 +303,13 @@ header p {
 }
 
 .footer {
-    display: flex;
-    align-items: center;
     color: rgb(10, 12, 14);
+    margin-bottom: 2rem;
     text-align: center;
     padding: 2rem 1rem;
-    height: 2px;
+    height: 1px;
     width: 500px;
-    border-radius: 100px;
+    border-radius: 500px;
 }
 
 /* Responsive Design */
