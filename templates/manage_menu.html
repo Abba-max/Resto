@@ -92,6 +92,10 @@
             <label for="image">Image:</label>
             <input type="file" id="image" name="image">
 
+            <label for="Description">Name:</label>
+            <input type="text" id="name" name="Description" value="{{ menu.description|default:'' }}" required>
+
+
             <button type="submit" class="btn save-btn">{% if menu %}Save Changes{% else %}Add Menu{% endif %}</button>
         </form>
     </div>

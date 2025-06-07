@@ -84,6 +84,7 @@ def manage_menu(request, menu_id=None):
         name = request.POST.get("name")
         price = request.POST.get("price")
         image = request.FILES.get("image")
+        description = request.POST.get("description")
 
         if menu:
             # Update existing menu
@@ -94,7 +95,7 @@ def manage_menu(request, menu_id=None):
             menu.save()
         else:
             # Create a new menu
-            Menu.objects.create(name=name, price=price, image=image, vendor=vendor)
+            Menu.objects.create(name=name, price=price, image=image, description=description, vendor=vendor)
 
         return redirect('vendor_dashboard')
 
