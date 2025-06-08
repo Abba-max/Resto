@@ -40,8 +40,8 @@ h1 {
 
 /* Style for menu images in the cart */
 .menu-image {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     object-fit: cover;
     border-radius: 6px;
     background: #f1f1f1;
@@ -51,8 +51,8 @@ h1 {
 
 /* If you use .cart-img elsewhere, keep it but keep it small for consistency */
 .cart-img {
-    width: 20px;
-    height: 20px;
+    width: 32px;
+    height: 32px;
     object-fit: cover;
     border-radius: 6px;
 }
@@ -117,8 +117,8 @@ h1 {
     }
     .menu-image,
     .cart-img {
-        width: 20px;
-        height: 20px;
+        width: 32px;
+        height: 32px;
     }
 }
 

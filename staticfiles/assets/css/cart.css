@@ -37,20 +37,24 @@ h1 {
     color: #fff;
     font-weight: 600;
 }
-.menu-item img {
-    width: 10px;
-    height: 10px;
+
+/* Style for menu images in the cart */
+.menu-image {
+    width: 20px;
+    height: 20px;
     object-fit: cover;
-    flex-shrink: 0;
-    border-radius: 10px;
+    border-radius: 6px;
     background: #f1f1f1;
+    display: block;
+    margin: 0 auto;
 }
 
+/* If you use .cart-img elsewhere, keep it but keep it small for consistency */
 .cart-img {
-    width: 60px;
-    height: 60px;
+    width: 20px;
+    height: 20px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 6px;
 }
 
 .cart-contact {
@@ -101,6 +105,7 @@ h1 {
     text-decoration: underline;
 }
 
+/* Responsive adjustments */
 @media (max-width: 900px) {
     .cart-container {
         max-width: 98vw;
@@ -110,9 +115,10 @@ h1 {
         padding: 8px 4px;
         font-size: 0.95rem;
     }
+    .menu-image,
     .cart-img {
-        width: 40px;
-        height: 40px;
+        width: 20px;
+        height: 20px;
     }
 }
 
@@ -135,11 +141,9 @@ h1 {
         font-size: 1rem;
         padding: 10px 0;
     }
-}
-
-.cart-img {
-    width: 32px;
-    height: 32px;
-    object-fit: cover;
-    border-radius: 8px;
+    .menu-image,
+    .cart-img {
+        width: 16px;
+        height: 16px;
+    }
 }
