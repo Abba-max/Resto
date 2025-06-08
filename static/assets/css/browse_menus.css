@@ -6,24 +6,27 @@ body {
 }
 
 header {
-    background: #2d3e50;
+    background: #768aa0;
+    background-image: url(../img/DJI_0076.jpg);
     color: #fff;
-    border-radius: 40px; /* was 100%, which can break on mobile */
-    padding: 1.5rem 0 1rem 0;
+    border-radius: 18px; /* reduced from 40px */
+    padding: 0.7rem 0 0.5rem 0; /* reduced from 1.5rem 0 1rem 0 */
     text-align: center;
     max-width: 100vw;
     margin: 0 auto;
+    background-size: cover;
+    background-position: center;
 }
 
 .header-content h1 {
-    margin: 0 0 0.5rem 0;
-    font-size: 2rem;
+    margin: 0 0 0.3rem 0;  
+    font-size: 1.25rem;    
 }
 
 .header-content h2 {
-    margin: 0 0 1rem 0;
+    margin: 0 0 0.7rem 0;  
     font-weight: 400;
-    font-size: 1.2rem;
+    font-size: 1rem;      
 }
 
 .nav-actions {
@@ -62,6 +65,7 @@ main {
     margin: 2rem auto;
     padding: 0 1rem;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .filters {
@@ -193,16 +197,17 @@ main {
     background: #2d3e50;
     color: #fff;
     text-align: center;
-    padding: 1rem 0;
-    margin-top: 2rem;
-    border-radius: 40px; /* was 50%, which is too extreme */
-    font-size: 1rem;
-    margin-left: 10px;
-    margin-right: 10px;
+    padding: 0.4rem 0;     
+    margin-top: 1rem;      
+    border-radius: 10px;   
+    font-size: 0.9rem;     
+    margin-left: 4px;      
+    margin-right: 4px;
     letter-spacing: 1px;
-    width: calc(100% - 20px);
+    width: calc(100% - 8px);  
     max-width: 1200px;
-    margin: 2rem auto 0 auto;
+    margin: 1rem auto 0 auto;
+    box-sizing: border-box;
 }
 
 /* Responsive Design */
@@ -215,8 +220,18 @@ main {
         padding: 0 0.5rem;
     }
     .footer {
-        font-size: 0.97rem;
-        padding: 0.8rem 0;
+        font-size: 0.85rem;
+        padding: 0.3rem 0;
+    }
+    .header-content h1 {
+        font-size: 1.05rem;
+    }
+    .header-content h2 {
+        font-size: 0.95rem;
+    }
+    header {
+        padding: 0.5rem 0 0.4rem 0; /* further reduce */
+        border-radius: 12px;
     }
 }
 
@@ -225,6 +240,7 @@ main {
         flex-direction: column;
         gap: 0.7rem;
         align-items: stretch;
+        padding: 0.7rem;
     }
     .menu-grid {
         gap: 0.8rem;
@@ -232,31 +248,38 @@ main {
     .menu-img-wrap {
         height: 120px;
     }
+    .header-content h1 {
+        font-size: 1.08rem;
+    }
+    .header-content h2 {
+        font-size: 0.97rem;
+    }
 }
 
 @media (max-width: 600px) {
     header {
-        border-radius: 20px;
-        padding: 1rem 0 0.7rem 0;
+        border-radius: 8px;
+        padding: 0.4rem 0 0.3rem 0;
     }
     .header-content h1 {
-        font-size: 1.2rem;
+        font-size: 0.97rem;
     }
     .header-content h2 {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
     .menu-grid {
         grid-template-columns: 1fr;
+        gap: 0.5rem;
     }
     .menu-img-wrap {
         height: 90px;
     }
     .footer {
-        font-size: 0.95rem;
-        padding: 0.7rem 0;
-        margin: 1.2rem 4px 0 4px;
-        border-radius: 10px;
-        width: calc(100% - 8px);
+        font-size: 0.82rem;
+        padding: 0.17rem 0;
+        margin: 0.6rem 2px 0 2px;
+        border-radius: 5px;
+        width: calc(100% - 4px);
     }
     .btn, .login-btn {
         padding: 0.5rem 0.7rem;
@@ -270,17 +293,34 @@ main {
         padding: 0 0.2rem;
         margin: 1rem auto;
     }
+    .filters {
+        padding: 0.3rem;
+        gap: 0.5rem;
+    }
 }
 
-/* Extra: horizontal scroll for overflow on small screens */
 @media (max-width: 500px) {
     .filters {
-        padding: 0.5rem;
+        padding: 0.2rem;
+        gap: 0.3rem;
     }
     .menu-details h3 {
         font-size: 1rem;
     }
     .menu-img-wrap {
         height: 65px;
+    }
+    .menu-item {
+        border-radius: 5px;
+    }
+    .footer {
+        padding: 0.17rem 0;
+        font-size: 0.8rem;
+        margin: 0.5rem 1px 0 1px;
+        border-radius: 4px;
+        width: calc(100% - 2px);
+    }
+    main {
+        padding: 0 0.1rem;
     }
 }

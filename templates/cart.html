@@ -27,11 +27,16 @@
                         {% for item in group.items %}
                             <tr>
                                 <td>
-                                    {% if item.menu.image %}
-                                        <img src="{{ item.menu.image.url }}" alt="{{ item.menu.name }}" class="cart-img">
-                                    {% else %}
-                                        <img src="{% static 'assets/img/default-menu-image.png' %}" alt="Default" class="cart-img">
-                                    {% endif %}
+                                   {% if menu.image %}
+                            <img src="{{ menu.image.url }}"
+                                 alt="{{ menu.name }}"
+                                 class="menu-image"
+                                 onerror="this.onerror=null;this.src='{% static 'assets/img/menu-item-1.png' %}';">
+                        {% else %}
+                            <img src="{% static 'assets/img/menu-item-1.png' %}"
+                                 alt="Default Image"
+                                 class="menu-image">
+                        {% endif %}
                                 </td>
                                 <td>{{ item.menu.name }}</td>
                                 <td>{{ item.quantity }}</td>

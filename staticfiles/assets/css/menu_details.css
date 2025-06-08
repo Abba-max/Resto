@@ -20,7 +20,14 @@ main {
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
+.menu-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #f1f1f1;
+}
 a {
     display: inline-block;
     margin-top: 1rem;

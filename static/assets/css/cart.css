@@ -37,10 +37,19 @@ h1 {
     color: #fff;
     font-weight: 600;
 }
+.menu-item img {
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border-radius: 6px;
+    background: #f1f1f1;
+}
 
+/* Reduced cart image size */
 .cart-img {
-    width: 60px;
-    height: 60px;
+    width: 32px;
+    height: 32px;
     object-fit: cover;
     border-radius: 8px;
 }
@@ -103,8 +112,8 @@ h1 {
         font-size: 0.95rem;
     }
     .cart-img {
-        width: 40px;
-        height: 40px;
+        width: 10px;
+        height: 10px;
     }
 }
 
@@ -126,5 +135,9 @@ h1 {
     .cart-btn {
         font-size: 1rem;
         padding: 10px 0;
+    }
+    .cart-img {
+        width: 10px;
+        height: 10px;
     }
 }

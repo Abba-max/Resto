@@ -13,9 +13,9 @@
     <form style="display:flex; align-items:center; justify-content:center;" method="POST" action="{% url 'login' %}">
         {% csrf_token %}
         <center>
-            {% for message in messages %}
-                <h4>{{ message }}</h4>
-            {% endfor %}
+    {% for message in messages %}
+        <h4 style="color:red;">{{ message }}</h4>
+{% endfor %}
             <h1>Login Page</h1>
             <h3>Username: <input class="input" type="text" name="username" /></h3>
            <h3>Role: 

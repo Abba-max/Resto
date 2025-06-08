@@ -11,13 +11,18 @@
     <center>
     <div class="container">
         <div class="menu-card">
-            {% if menu.image %}
-                <img src="{{ menu.image.url }}" alt="{{ menu.name }}" class="menu-image">
-            {% else %}
-                <img src="{% static 'assets/img/menu-item-1.png' %}" alt="Default Image" class="menu-image">
-            {% endif %}
+           {% if menu.image %}
+                            <img src="{{ menu.image.url }}"
+                                 alt="{{ menu.name }}"
+                                 class="menu-image"
+                                 onerror="this.onerror=null;this.src='{% static 'assets/img/menu-item-1.png' %}';">
+                        {% else %}
+                            <img src="{% static 'assets/img/menu-item-1.png' %}"
+                                 alt="Default Image"
+                                 class="menu-image">
+                        {% endif %}
             <div class="menu-info">
-                <h1>{{ menu.name }}</h1>
+                <h1>{{ menu.name }} from {{menu.vendor}}</h1>
                 <p class="description">{{ menu.description }}</p>
                 <p class="price">Price: FCFA {{ menu.price }}</p>
                 <a href="{% url 'place_order' menu.id %}" class="btn order-btn">Order Now</a><br><br>

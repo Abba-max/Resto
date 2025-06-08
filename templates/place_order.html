@@ -32,6 +32,11 @@
                           Order placed successfully!
                      </div>
                     {% endif %}
+                    {% for message in messages %}
+                  {% ifequal message "Contact and Location information is required." %}
+                    <h4 style="color:red;">{{ message }}</h4>
+                 {% endifequal %}
+                   {% endfor %}
                     <button type="submit" class="btn order-btn">Place Order</button>
                     
                     <a href="{% url 'browse_menus' %}" class="btn back-btn"><br><br>Back to menu</a>
