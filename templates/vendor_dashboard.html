@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'assets/css/vendor_dashboard.css' %}">
-    <title>{{vendor.name}} Dashboard</title>
+    <title> Dashboard</title>
 </head>
 <body>
     <header>
-        <h1>Vendor Dashboard</h1>
+        <h1>{{vendor.restaurant_name}} Dashboard</h1>
         <nav>
             <a href="{% url 'vendor_dashboard' %}">Home</a>
             <a href="{% url 'logout' %}">Logout</a>

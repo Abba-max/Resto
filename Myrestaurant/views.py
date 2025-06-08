@@ -73,7 +73,7 @@ def vendor_dashboard(request):
     menus = Menu.objects.filter(vendor=vendor)
     orders = Order.objects.filter(menu__vendor=vendor)
 
-    return render(request, 'vendor_dashboard.html', {'menus': menus, 'orders': orders})
+    return render(request, 'vendor_dashboard.html', {'menus': menus, 'orders': orders, 'vendor': vendor})
 
 
 def manage_menu(request, menu_id=None):
