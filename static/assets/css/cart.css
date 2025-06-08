@@ -40,8 +40,8 @@ h1 {
 
 /* Style for menu images in the cart */
 .menu-image {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     object-fit: cover;
     border-radius: 6px;
     background: #f1f1f1;
