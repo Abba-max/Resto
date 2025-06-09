@@ -11,7 +11,7 @@
 <body>
     <header>
         <h1>{{vendor.restaurant_name}} Dashboard</h1>
-                     <span id="realtime-date"></span>
+                    <span  id="realtime-date"></span>
                 <script>
 function updateDate() {
     const now = new Date();
@@ -30,8 +30,8 @@ setInterval(updateDate, 1000);
 updateDate();
 </script>
         <nav>
-            <a href="{% url 'vendor_dashboard' %}">Home</a>
-            <a href="{% url 'logout' %}">Logout</a>
+            <a href="{% url 'vendor_dashboard' %}"><h2>Home</h2></a>
+            <a href="{% url 'logout' %}"><h2>Logout</h2></a>
         </nav>
     </header>
     <main>
