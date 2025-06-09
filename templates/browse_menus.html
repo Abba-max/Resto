@@ -13,26 +13,27 @@
     <header>
         <div class="header-text">
             <span style="display: inline-flex; align-items: center;">
-                 <img src="{% static 'assets/img/Logo_IUSJ.jpg' %}" alt="Logo" class="logo">
-  {% if user.is_authenticated %}
-            
+  <img src="{% static 'assets/img/Logo_IUSJ.jpg' %}" alt="Logo" class="logo">
+        
+ {% if user.is_authenticated %}
                 <h1>Welcome {{user.username}} to Eyang Food Delivery Services</h1>
+               
             {% else %}
                 <h1>Welcome to Eyang Food Delivery Services</h1>
-             
+               
             {% endif %}
-                    </span>
-                       <h2 style="color:White;">Explore our delicious menu options and order your favorite dishes!</h2>
-            
+             
+  </span>
+  <h2 style="color:white;">Explore our delicious menu options and order your favorite dishes!</h2>
+           
         </div>
-        
         <div class="header-content">
+            <div class="nav-block">
+                <img src="{% static 'assets/img/Home page red.jpg' %}" alt="Home" class="user-icon">
+                <a class="btn login-btn" href="/">HOME</a>
+            </div>
+            {% if user.is_authenticated %}
                 <div class="nav-block">
-                    <img src="{% static 'assets/img/Home page red.jpg' %}" alt="Home" class="user-icon">
-                    <a class="btn login-btn" href="/">HOME</a>
-                </div>
-                {% if user.is_authenticated %}
-                  <div class="nav-block">
                     <img src="{% static 'assets/img/Shopping cart.jpg' %}" alt="Cart" class="user-icon">
                     <a href="{% url 'view_cart' %}" class="btn login-btn">Go to Cart</a>
                 </div>
@@ -41,7 +42,7 @@
                     <img src="{% static 'assets/img/Logo after login.webp' %}" alt="Logout" class="user-icon">
                     <button type="submit" class="btn login-btn">Logout</button>
                 </form>
-                {% else %}
+            {% else %}
                 <div class="nav-block">
                     <img src="{% static 'assets/img/Logo before login.jpg' %}" alt="Login" class="user-icon">
                     <a href="{% url 'login' %}" class="btn login-btn">Login</a>
@@ -50,7 +51,7 @@
                     <img src="{% static 'assets/img/Logo before login.jpg' %}" alt="Register" class="user-icon">
                     <a href="{% url 'registration' %}" class="btn login-btn">Register</a>
                 </div>
-                {% endif %}
+            {% endif %}
         </div>
     </header>
     <main>
@@ -80,7 +81,6 @@
                 <script>
 function updateDate() {
     const now = new Date();
-    // Example format: Monday, June 10, 2025 07:15 PM
     const options = {
         weekday: 'long', year: 'numeric', month: 'long',
         day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit',
@@ -88,12 +88,9 @@ function updateDate() {
     };
     document.getElementById('realtime-date').textContent = now.toLocaleString('en-US', options);
 }
-
-// Update every second
 setInterval(updateDate, 1000);
-// Run once at start
 updateDate();
-</script>
+                </script>
             </form>
             {% endif %}
             <ul class="menu-grid">
@@ -112,7 +109,12 @@ updateDate();
                         {% endif %}
                     </div>
                     <div class="menu-details">
-                        <h3>{{ menu.name }} <span class="vendor-name">({{menu.vendor}})</span></h3>
+                        <h3>
+                            {% if menu.vendor.logo %}
+                                <img src="{{ menu.vendor.logo.url }}" alt="{{ menu.vendor.restaurant_name }}" class="vendor-logo">
+                            {% endif %}
+                            {{ menu.name }} <span class="vendor-name">({{menu.vendor}})</span>
+                        </h3>
                         <p class="price">Price: <span>FCFA {{ menu.price }}</span></p>
                         <a href='{% url 'menu_details' menu.id %}' class="details-link">Menu Details</a>
                         <p class="vendor-contact">{{ menu.vendor.contact }}</p>

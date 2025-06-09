@@ -7,8 +7,8 @@ body {
 }
 
 header {
-    background-color: #2988e7;
-    color: #1d0f0f;
+    background-color: #13273a;
+    color: #205bda;
     padding: 1rem 2vw;
     text-align: center;
     border-radius: 30px;
@@ -204,6 +204,8 @@ main {
     text-overflow: ellipsis;
     max-width: 300px; /* Adjust as needed for your longest expected content */
 }
+
+
 
 /* Responsive styles */
 @media (max-width: 1024px) {
