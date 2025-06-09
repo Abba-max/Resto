@@ -45,6 +45,16 @@
     inpt-box{
         background-color:rgb(108, 143, 218);
     }
+
+      .logo {
+    height: 64px;
+    width: auto;
+    max-width: 90vw;
+    display: block;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 2px 12px rgba(100,100,150,0.07);
+}
 </style>
 
 
@@ -59,7 +69,12 @@
     {% endfor %}
   </div>
 {% endif %}
-     <h1> Sign up here</h1>
+<span>
+              <img src="{% static 'assets/img/Logo_IUSJ.jpg' %}" alt="Logo" class="logo">
+             <h1> Sign up here</h1>
+            </span>
+            
+     
     <h4>Username: <input class="input" type="text" name="username" required /> </h4>
     <h4>Email: <input class="input" type="email" name="email" required /></h4>
     <h4>Contact: <input class="input" type="text" name="contact" required /></h4>

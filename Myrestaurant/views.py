@@ -66,15 +66,16 @@ def place_order(request, menu_id):
 
 # Vendor view for managing menus
 def vendor_dashboard(request):
-    # Ensure the logged-in user is a vendor
-    vendor = get_object_or_404(Vendor, user=request.user)
-
-    # Retrieve menus and orders associated with the vendor
-    menus = Menu.objects.filter(vendor=vendor)
+    vendor = request.user.vendor
     orders = Order.objects.filter(menu__vendor=vendor)
-
-    return render(request, 'vendor_dashboard.html', {'menus': menus, 'orders': orders, 'vendor': vendor})
-
+    undelivered_orders = orders.exclude(status__iexact="delivered")
+    menus = Menu.objects.filter(vendor=vendor)
+    return render(request, 'vendor_dashboard.html', {
+        'vendor': vendor,
+        'orders': orders,
+        'undelivered_orders': undelivered_orders,
+        'menus': menus,
+    })
 
 def manage_menu(request, menu_id=None):
     vendor = get_object_or_404(Vendor, user=request.user)
