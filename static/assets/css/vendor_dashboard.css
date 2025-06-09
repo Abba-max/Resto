@@ -39,13 +39,14 @@ main {
     margin-bottom: 2rem;
 }
 
+/* Updated menu-item layout */
 .menu-item {
     border: 1px solid #ddd;
     padding: 1rem;
     margin-bottom: 1rem;
     display: flex;
-    align-items: center;
-    gap: 1rem;
+    align-items: flex-start;
+    gap: 1.5rem;
     flex-wrap: wrap;
     background: #fff;
     border-radius: 12px;
@@ -56,18 +57,59 @@ main {
     box-shadow: 0 2px 10px rgba(52,58,64,0.12);
 }
 
-.menu-item img {
+/* Image and price column */
+.menu-img-and-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 110px;
+}
+
+.menu-image {
     width: 100px;
     height: 100px;
     object-fit: cover;
-    flex-shrink: 0;
     border-radius: 10px;
     background: #f1f1f1;
+    margin-bottom: 0.4rem;
 }
 
-.menu-item-content {
+.menu-price {
+    font-weight: bold;
+    color: #007bff;
+    margin-top: 0.1rem;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+/* Details (right of image) */
+.menu-detail-content {
     flex: 1 1 200px;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Description box */
+.menu-description-box {
+    background: #f7fafc;
+    border: 1.5px solid #b0bec5;
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    color: #37474f;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 2px 6px rgba(52,58,64,0.06);
+    word-break: break-word;
+}
+
+.menu-controls {
+    display: flex;
+    align-items: center;
+    gap: 1cm;
+    align-items: center;
+    margin-top: 0.3rem;
 }
 
 .edit-btn, .delete-btn, .add-menu-btn {
@@ -171,9 +213,19 @@ main {
         align-items: flex-start;
         gap: 0.5rem;
     }
-    .menu-item img {
+    .menu-img-and-price {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1.2rem;
+    }
+    .menu-image {
         width: 90px;
         height: 90px;
+    }
+    .menu-price {
+        margin-top: 0;
+        margin-left: 1rem;
+        text-align: left;
     }
     #orders-section table,
     #orders-section th,
@@ -189,7 +241,7 @@ main {
         padding: 0.8rem 2vw;
         font-size: 1.05rem;
     }
-    .menu-item img {
+    .menu-image {
         width: 80px;
         height: 80px;
     }
@@ -202,7 +254,7 @@ main {
 }
 
 @media (max-width: 700px) {
-    .menu-item img {
+    .menu-image {
         width: 70px;
         height: 70px;
     }
@@ -233,7 +285,7 @@ main {
     .menu-item {
         padding: 0.6rem 0.3rem;
     }
-    .menu-item img {
+    .menu-image {
         width: 60px;
         height: 60px;
     }
@@ -265,7 +317,7 @@ main {
         padding: 0.4rem 0.2rem;
         font-size: 0.97rem;
     }
-    .menu-item img {
+    .menu-image {
         width: 48px;
         height: 48px;
     }

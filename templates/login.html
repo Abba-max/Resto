@@ -10,20 +10,25 @@
 
 </head>
 <body>
+    
     <form style="display:flex; align-items:center; justify-content:center;" method="POST" action="{% url 'login' %}">
         {% csrf_token %}
         <center>
-    {% for message in messages %}
-        <h4 style="color:red;">{{ message }}</h4>
-{% endfor %}
+            {% if messages %}
+      <div class="messages">
+        {% for message in messages %}
+          <h4 class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</h4>
+        {% endfor %}
+      </div>
+    {% endif %}
             <h1>Login Page</h1>
             <h3>Username: <input class="input" type="text" name="username" /></h3>
            <h3>Role: 
-    <select class="input" name="role" required>
-        <option value="client">Client</option>
-        <option value="vendor">Vendor</option>
-    </select>
-    </h3>
+                <select class="input" name="role" required>
+                    <option value="client">Client</option>
+                    <option value="vendor">Vendor</option>
+                </select>
+            </h3>
             <h3>Password: <input class="input" type="Password" name="password" /></h3>
             <input class = "save-btn" type="submit" name="save" />
             <h5>If you don't have an account, <a class = "save-btn" class="btn-getstarted" href="{% url 'registration' %}">Sign up</a></h5>
