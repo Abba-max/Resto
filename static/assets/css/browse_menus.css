@@ -140,14 +140,15 @@ main {
     text-align: center;
 }
 
+/* Use grid for better responsiveness */
 .menu-grid {
     list-style: none;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 2rem;
     margin: 0;
     padding: 0;
-    justify-content: center;
+    justify-items: center;
 }
 
 .menu-item {
@@ -155,9 +156,9 @@ main {
     border-radius: 14px;
     box-shadow: 0 2px 14px rgba(0,0,0,0.08);
     overflow: hidden;
-    min-width: 270px;
-    max-width: 340px;
     width: 100%;
+    max-width: 340px;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
@@ -175,15 +176,18 @@ main {
     justify-content: center;
     align-items: center;
     padding: 0.8rem 0;
+    min-height: 160px;
 }
 
 .menu-image {
-    width: 300px;
-    height: 200px;
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 3/2;
     object-fit: cover;
     border-radius: 10px;
     background: #fcfcfc;
     border: 2px solid #eee;
+    display: block;
 }
 
 .menu-details {
@@ -285,6 +289,9 @@ main {
         margin: 0 auto 0.8rem auto;
         display: block;
     }
+    .menu-grid {
+        gap: 1.3rem;
+    }
 }
 
 @media (max-width: 850px) {
@@ -300,16 +307,14 @@ main {
         padding: 0.7rem 0.5rem;
     }
     .menu-grid {
-        gap: 1.3rem;
+        gap: 1.2rem;
     }
     .menu-item {
-        min-width: 220px;
         max-width: 99vw;
-        margin-bottom: 1rem;
     }
     .menu-image {
-        width: 200px;
-        height: 200px;
+        max-width: 220px;
+        min-width: 120px;
     }
 }
 
@@ -342,22 +347,25 @@ main {
         padding: 0.5rem 0.1rem;
     }
     .menu-grid {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         gap: 0.8rem;
     }
     .menu-item {
-        min-width: 90vw;
         max-width: 99vw;
         width: 99vw;
         margin: 0 auto 0.8rem auto;
         padding: 0;
     }
     .menu-img-wrap {
-        padding: 0.4rem 0;
+        padding: 0.3rem 0;
+        min-height: 80px;
     }
     .menu-image {
-        width: 120px;
-        height: 120px;
+        max-width: 100vw;
+        width: 100vw;
+        min-width: 0;
+        height: auto;
+        aspect-ratio: 1/1;
     }
     .menu-details {
         padding: 0.7rem 0.7rem 0.5rem 0.7rem;
