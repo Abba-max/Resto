@@ -2,19 +2,19 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Arial, sans-serif;
-    font:100 ;
-    /* background: #f9f9f9; */
     min-height: 100vh;
     display: flex;
-    background:url(..img/Logo_IUSJ.jpg);
     flex-direction: column;
+    background: url(../img/Logo_IUSJ.jpg) no-repeat center center fixed;
+    background-size: cover;
 }
 
 header {
     background: #343a40;
     color: #292323;
     padding: 0 0 1rem 0;
-    background:url(../img/Accueil_IUSJ.jpg);
+    background: url(../img/Accueil_IUSJ.jpg) no-repeat center center;
+    background-size: cover;
     border-radius: 20%;
 }
 
@@ -35,10 +35,10 @@ header {
 }
 
 .logo {
-    height: 60px;
+    height: 80px;
     width: auto;
     margin-left: 10px;
-    max-width: 28vw;
+    max-width: 220px;
     flex-shrink: 0;
     display: block;
     margin-top: 1rem;
@@ -50,10 +50,10 @@ header {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    flex-wrap: nowrap; /* keep horizontal on all screens */
-    gap: 2cm;
+    flex-wrap: nowrap;
+    gap: 2.5rem;
     padding: 1rem 2vw 0.5rem 2vw;
-    overflow-x: auto;  /* enable horizontal scroll on overflow */
+    overflow-x: auto;
     width: 100%;
     box-sizing: border-box;
 }
@@ -63,20 +63,28 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.4rem;
+    gap: 1rem;
     margin: 0;
-    padding: 0;
+    padding: 0.5rem 0.7rem;
     white-space: nowrap;
+    background: rgba(255,255,255,0.85);
+    border-radius: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    transition: box-shadow 0.18s;
+}
+.nav-block:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
 }
 
 .user-icon {
-    width: 36px;
-    height: 36px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     object-fit: cover;
     background: #fff;
     border: 1.5px solid #eee;
     flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .btn.login-btn, .login-btn, .reset-btn {
@@ -84,9 +92,9 @@ header {
     color: #fff;
     border: none;
     border-radius: 25px;
-    padding: 0.5rem 1.2rem;
+    padding: 0.7rem 1.6rem;
     margin: 0.2rem 0;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
     text-decoration: none;
@@ -135,7 +143,7 @@ main {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 2.5rem;
     margin: 0;
     padding: 0;
     justify-content: center;
@@ -143,20 +151,21 @@ main {
 
 .menu-item {
     background: #fff;
-    border-radius: 14px;
-    box-shadow: 0 2px 14px rgba(0,0,0,0.08);
+    border-radius: 18px;
+    box-shadow: 0 2px 18px rgba(0,0,0,0.12);
     overflow: hidden;
-    min-width: 270px;
-    max-width: 340px;
+    min-width: 370px;
+    max-width: 540px;
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-bottom: 1rem;
+    align-items: center;
+    margin-bottom: 2rem;
     transition: box-shadow 0.2s;
 }
 
 .menu-item:hover {
-    box-shadow: 0 6px 24px rgba(0,0,0,0.16);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.20);
 }
 
 .menu-img-wrap {
@@ -165,33 +174,52 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.8rem 0;
+    padding: 1.5rem 0;
 }
 
 .menu-image {
-    width: 300px;
-    height: 200px;
+    width: 95%;
+    max-width: 480px;
+    height: 320px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 18px;
     background: #fcfcfc;
-    border: 2px solid #eee;
+    border: 3px solid #eee;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    display: block;
 }
 
 .menu-details {
-    padding: 1rem 1.1rem 0.7rem 1.1rem;
+    padding: 1.1rem 1.3rem 1rem 1.3rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.65rem;
+    width: 100%;
 }
 
 .menu-details h3 {
     margin: 0;
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     color: #333;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.menu-details h3 .vendor-logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+    border: 1.5px solid #eee;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.11);
 }
 
 .vendor-name {
-    font-size: 0.97rem;
+    font-size: 1.05rem;
     color: #666;
     font-weight: normal;
 }
@@ -214,7 +242,7 @@ main {
 }
 
 .vendor-contact {
-    font-size: 0.91rem;
+    font-size: 0.97rem;
     color: #888;
     margin-bottom: 0.5rem;
 }
@@ -222,8 +250,9 @@ main {
 .menu-actions {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    margin-top: 0.4rem;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+    width: 100%;
 }
 
 .menu-actions > a,
@@ -248,20 +277,19 @@ main {
 }
 
 .menu-actions .user-icon {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     margin-right: 0.2rem;
 }
 
-/* Footer style */
 .footer {
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     background: #343a40;
     color: #fff;
     text-align: center;
-    height:50px;
+    height: 50px;
     padding: 0.8rem 0;
     border-radius: 14px 14px 0 0;
     margin-top: 2rem;
@@ -269,41 +297,36 @@ main {
 }
 
 /* Responsive Styles */
-@media (max-width: 1100px) {
-    .logo {
-        height: 48px;
-        max-width: 50vw;
-        margin: 0 auto 0.8rem auto;
-        display: block;
+@media (max-width: 1200px) {
+    .menu-image {
+        height: 240px;
+        max-width: 95vw;
+    }
+    .menu-item {
+        min-width: 320px;
+        max-width: 99vw;
     }
 }
-
-@media (max-width: 850px) {
-    .header-text h1 {
-        font-size: 1.3rem;
+@media (max-width: 900px) {
+    .header-content {
+        gap: 1rem;
+        padding: 0.7rem 2vw 0.5rem 2vw;
     }
-    .header-text h2 {
-        font-size: 1rem;
-    }
-    .filters {
-        flex-direction: column;
-        gap: 0.7rem;
-        padding: 0.7rem 0.5rem;
+    .logo {
+        height: 60px;
+        max-width: 50vw;
     }
     .menu-grid {
         gap: 1.3rem;
     }
     .menu-item {
         min-width: 220px;
-        max-width: 99vw;
-        margin-bottom: 1rem;
     }
     .menu-image {
-        width: 90px;
-        height: 90px;
+        height: 180px;
+        max-width: 99vw;
     }
 }
-
 @media (max-width: 650px) {
     header {
         padding: 1rem 0.2rem 0.7rem 0.2rem;
@@ -316,7 +339,7 @@ main {
     }
     .logo {
         height: 36px;
-        max-width: 75vw;
+        max-width: 48vw;
         margin-bottom: 0.4rem;
     }
     .btn.login-btn {
@@ -324,8 +347,8 @@ main {
         padding: 0.4rem 0.8rem;
     }
     .user-icon {
-        width: 28px;
-        height: 28px;
+        width: 32px;
+        height: 32px;
     }
     .filters {
         flex-direction: column;
@@ -347,8 +370,10 @@ main {
         padding: 0.4rem 0;
     }
     .menu-image {
-        width: 75px;
-        height: 75px;
+        width: 99vw;
+        height: 120px;
+        max-width: 99vw;
+        border-radius: 12px;
     }
     .menu-details {
         padding: 0.7rem 0.7rem 0.5rem 0.7rem;
