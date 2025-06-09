@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'assets/css/browse_menus.css' %}">
     <link rel="icon" href="{% static 'assets/img/DJI_0076.jpg' %}" type="image/jpg">
-    <title>Browse Menus</title>
+    <title>Eyang-meal</title>
 </head>
 <body>
     <header>
@@ -16,20 +16,41 @@
                 <h1>Welcome {{user.username}} to Eyang Food Delivery Services</h1>
                 <h2>Explore our delicious menu options and order your favorite dishes!</h2>
                 <nav class="nav-actions">
+                    <div style="display: flex; align-items: center;">
+                    <img src="{% static 'assets/img/Home page red.jpg' %}" alt="" class="user-icon">
                     <a class="btn login-btn" href="/">HOME</a>
+                    </div>
+                        <div style="display: flex; align-items: center;"> 
+                      <img src="{% static 'assets/img/Shopping cart.jpg' %}" alt="" class="user-icon">
                     <a href="{% url 'view_cart' %}" class="btn login-btn">Go to Cart</a>
+                    </div>
+                  
                     <form method="POST" action="{% url 'logout' %}">
                         {% csrf_token %}
-                        <button type="submit" class="btn login-btn">Logout</button>
+                         <div style="display: flex; align-items: center;"> 
+                      <img src="{% static 'assets/img/Logo after login.webp' %}" alt="" class="user-icon">
+                   <button type="submit" class="btn login-btn">Logout</button>
+                    </div>
+                        
                     </form>
                 </nav>
             {% else %}
                 <h1>Welcome to Eyang Food Delivery Services</h1>
                 <h2>Explore our delicious menu options and order your favorite dishes!</h2>
                 <nav class="nav-actions">
+                    <div style="display: flex; align-items: center;">
+                    <img src="{% static 'assets/img/Home page red.jpg' %}" alt="" class="user-icon">
                     <a class="btn login-btn" href="/">HOME</a>
+                    </div>
+                    <div style="display: flex; align-items: center;"> 
+                      <img src="{% static 'assets/img/Logo before login.jpg' %}" alt="" class="user-icon">
                     <a href="{% url 'login' %}" class="btn login-btn">Login</a>
+                    </div>
+                     <div style="display: flex; align-items: center;"> 
+                      <img src="{% static 'assets/img/Logo before login.jpg' %}" alt="" class="user-icon">
                     <a href="{% url 'registration' %}" class="btn login-btn">Register</a>
+                    </div>
+                   
                 </nav>
             {% endif %}
         </div>
@@ -84,7 +105,12 @@
                             <form method="post" action="{% url 'add_to_cart' menu.id %}" class="cart-form">
                                 {% csrf_token %}
                                 <input type="number" name="quantity" value="1" min="1" class="quantity-input">
-                                <button type="submit" class="btn login-btn">Add to Cart</button>
+                                 </div>
+                     <div style="display: flex; align-items: center;"> 
+                      <img src="{% static 'assets/img/Add to cart.jpg' %}" alt="" class="user-icon">
+                         <button type="submit" class="btn login-btn">Add to Cart</button>
+                    </div>
+                           
                             </form>
                         </div>
                     </div>
