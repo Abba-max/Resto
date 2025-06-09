@@ -21,10 +21,15 @@
                 <h2>Order: {{ menu.name }} from {{menu.vendor}}</h2>
                 <div class="order-image">
                     {% if menu.image %}
-                        <img src="{{ menu.image.url }}" alt="{{ menu.name }}">
-                    {% else %}
-                        <img src="{% static 'assets/img/menu-item-1.png' %}" alt="Default Image">
-                    {% endif %}
+                            <img src="{{ menu.image.url }}"
+                                 alt="{{ menu.name }}"
+                                 class="menu-image"
+                                 onerror="this.onerror=null;this.src='{% static 'assets/img/menu-item-1.png' %}';">
+                        {% else %}
+                            <img src="{% static 'assets/img/menu-item-1.png' %}"
+                                 alt="Default Image"
+                                 class="menu-image">
+                        {% endif %}
                 </div>
                 <p class="price">Price: FCFA {{ menu.price }}</p>
                 <form method="post" autocomplete="off">

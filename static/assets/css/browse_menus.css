@@ -1,4 +1,4 @@
-/* --- Modern, Uniform, Adaptive, Fully Responsive Menu Styles --- */
+/* --- Responsive Browse Menu Page - Matches Vendor Dashboard Look, Medium Images on Mobile --- */
 
 body {
     margin: 0;
@@ -10,7 +10,7 @@ body {
     flex-direction: column;
 }
 
-/* HEADER */
+/* HEADER - Matches Vendor Dashboard */
 header {
     background: linear-gradient(90deg, #22223B 60%, #4A4E69 100%);
     color: #fff;
@@ -165,7 +165,7 @@ main {
 .menu-grid {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2.1rem;
     margin: 0;
     padding: 0;
@@ -178,7 +178,7 @@ main {
     box-shadow: 0 2px 16px rgba(44,44,84,0.10);
     overflow: hidden;
     width: 100%;
-    max-width: 360px;
+    max-width: 520px; /* Wider for desktop/tablet */
     min-width: 0;
     display: flex;
     flex-direction: column;
@@ -200,14 +200,14 @@ main {
     align-items: center;
     background: linear-gradient(90deg,#e9f2fa 0%, #f7e6ff 100%);
     padding: 1rem 0;
-    min-height: 150px;
+    min-height: 180px;
     box-sizing: border-box;
 }
 
 /* Uniform & Adaptive Menu Image */
 .menu-image {
     width: 100%;
-    max-width: 220px;
+    max-width: 300px;
     min-width: 120px;
     aspect-ratio: 4/3;
     height: auto;
@@ -220,18 +220,21 @@ main {
     transition: box-shadow 0.12s;
 }
 
-/* Sizing at various breakpoints for uniformity */
-@media (max-width: 1200px) {
-    main {
-        padding-left: 0.2rem;
-        padding-right: 0.2rem;
+/* --- Responsive Breakpoints: Card & Image Sizing --- */
+@media (max-width: 1150px) {
+    .logo {
+        height: 44px;
+        max-width: 38vw;
+    }
+    .menu-grid {
+        gap: 1.3rem;
     }
     .menu-image {
-        max-width: 180px;
+        max-width: 220px;
         min-width: 100px;
     }
     .menu-img-wrap {
-        min-height: 110px;
+        min-height: 120px;
         padding: 0.7rem 0;
     }
     .menu-item {
@@ -243,14 +246,7 @@ main {
         padding: 1rem 0.2rem;
     }
     .menu-grid {
-        gap: 1.3rem;
-    }
-    .menu-image {
-        max-width: 150px;
-        min-width: 90px;
-    }
-    .menu-img-wrap {
-        min-height: 90px;
+        gap: 1.1rem;
     }
     .menu-item {
         max-width: 99vw;
@@ -285,8 +281,8 @@ main {
         gap: 0.8rem;
     }
     .menu-item {
-        max-width: 99vw;
-        width: 99vw;
+        max-width: 97vw;
+        width: 97vw;
         margin: 0 auto 0.8rem auto;
         padding: 0;
     }
@@ -298,13 +294,13 @@ main {
         border-radius: 5px 5px 0 0;
     }
     .menu-img-wrap {
-        min-height: 60px;
+        min-height: 100px;
         padding: 0.5rem 0;
     }
     .menu-image {
-        max-width: 88vw;
-        min-width: 60px;
-        aspect-ratio: 1/1;
+        max-width: 70vw; /* Medium size on phone */
+        min-width: 120px;
+        aspect-ratio: 4/3;
     }
 }
 @media (max-width: 480px) {
@@ -319,12 +315,16 @@ main {
     .menu-details {
         padding: 0.5rem 0.3rem 0.3rem 0.3rem;
     }
+    .menu-item {
+        max-width: 99vw;
+        width: 99vw;
+    }
     .menu-img-wrap {
-        min-height: 30vw;
+        min-height: 70px;
     }
     .menu-image {
-        max-width: 95vw;
-        min-width: 38vw;
+        max-width: 90vw;   /* Medium on small screens */
+        min-width: 90px;
     }
 }
 
