@@ -6,13 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'assets/css/vendor_dashboard.css' %}">
     <link rel="icon" href="{% static 'assets/img/DJI_0076.jpg' %}" type="image/jpg">
-    <title> Dashboard</title>
+    <title>{{vendor.restaurant_name}} Dashboard</title>
 </head>
 <body>
     <header>
-        <h1>{{vendor.restaurant_name}} Dashboard</h1>
-                    <span  id="realtime-date"></span>
-                <script>
+        <h1>
+          <span style="display:inline-flex;align-items:center;gap:0.7em;">
+            {% if vendor.logo %}
+              <img src="{{ vendor.logo.url }}" alt="Logo" style="height:2.2em;width:2.2em;border-radius:50%;box-shadow:0 2px 10px rgba(44,44,84,0.12);background:#fff;margin-right:0.6em;">
+            {% endif %}
+            {{vendor.restaurant_name}} Dashboard
+          </span>
+        </h1>
+        <span id="realtime-date"></span>
+        <script>
 function updateDate() {
     const now = new Date();
     // Example format: Monday, June 10, 2025 07:15 PM
@@ -23,15 +30,12 @@ function updateDate() {
     };
     document.getElementById('realtime-date').textContent = now.toLocaleString('en-US', options);
 }
-
-// Update every second
 setInterval(updateDate, 1000);
-// Run once at start
 updateDate();
-</script>
+        </script>
         <nav>
-            <a href="{% url 'vendor_dashboard' %}"><h2>Home</h2></a>
-            <a href="{% url 'logout' %}"><h2>Logout</h2></a>
+            <a href="{% url 'vendor_dashboard' %}">Home</a>
+            <a href="{% url 'logout' %}">Logout</a>
         </nav>
     </header>
     <main>
@@ -51,7 +55,7 @@ updateDate();
                                  alt="Default Image"
                                  class="menu-image">
                         {% endif %}
-                        <div class="menu-price">Price: FCFA {{ menu.price }}</div>
+                        <div class="menu-price">FCFA {{ menu.price }}</div>
                     </div>
                     <div class="menu-detail-content">
                         <h3>{{ menu.name }}</h3>
@@ -65,6 +69,8 @@ updateDate();
                         </div>
                     </div>
                 </div>
+            {% empty %}
+                <p>No menus available.</p>
             {% endfor %}
         </section>
 
@@ -89,6 +95,7 @@ updateDate();
                             <th>Location</th>
                             <th>Contact</th>
                             <th>Status</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -101,19 +108,17 @@ updateDate();
     <td>{{ order.quantity }}</td>
     <td>{{ order.location }}</td>
     <td>{{ order.client.contact }}</td>
-   {% if order.status != "delivered" %}
-    <td style="background-color:red;">{{ order.status }}</td>
-    <td>
-        
-        <form method="post" action="{% url 'mark_order_delivered' order.id %}">
-            {% csrf_token %}
-            <button type="submit" class="edit-btn">Mark as Delivered</button>
-        </form>
-       
-    </td>
-     {% else %}
-       <td style="background-color:green;">delivered</td>
-        {% endif %}
+    {% if order.status != "delivered" %}
+        <td style="background-color:red;">{{ order.status }}</td>
+        <td>
+            <form method="post" action="{% url 'mark_order_delivered' order.id %}">
+                {% csrf_token %}
+                <button type="submit" class="edit-btn">Mark as Delivered</button>
+            </form>
+        </td>
+    {% else %}
+        <td style="background-color:green;" colspan="2">delivered</td>
+    {% endif %}
 </tr>
 {% endfor %}
                     </tbody>
@@ -126,7 +131,7 @@ updateDate();
 
     {% if orders|length > 0 %}
     <div class="notification">
-        You have {{ orders|length }} order{{ orders|length|pluralize }}.
+        You have {{ orders|length }} new order(s){{ orders|length|pluralize }}.
     </div>
     {% endif %}
 
