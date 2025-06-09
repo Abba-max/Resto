@@ -130,7 +130,7 @@
             <input type="file" id="image" name="image">
 
             <label for="description">Description:</label>
-            <input type="text" id="description" name="Description" value="{{ menu.description|default:'' }}" required>
+            <input type="text" id="description" name="description" value="{{ menu.description|default:'' }}" required>
 
             <button type="submit" class="btn save-btn">{% if menu %}Save Changes{% else %}Add Menu{% endif %}</button>
         </form>

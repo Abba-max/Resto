@@ -23,7 +23,7 @@ class Menu(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2)
     image = models.ImageField(upload_to='menu_images/', blank=True, null=True)  # Updated field
     vendor = models.ForeignKey('Vendor', on_delete=models.CASCADE)
-    description= models.CharField(max_length=500, null=True)
+    description= models.CharField(max_length=500)
 
     def __str__(self):
         return self.name
