@@ -11,22 +11,31 @@
 </head>
 <body>
     <header>
+        <div class="header-text">
+            <span style="display: inline-flex; align-items: center;">
+                 <img src="{% static 'assets/img/Logo_IUSJ.jpg' %}" alt="Logo" class="logo">
+  {% if user.is_authenticated %}
+            
+                <h1>Welcome {{user.username}} to Eyang Food Delivery Services</h1>
+            {% else %}
+                <h1>Welcome to Eyang Food Delivery Services</h1>
+             
+            {% endif %}
+                    </span>
+                       <h2 style="color:White;">Explore our delicious menu options and order your favorite dishes!</h2>
+            
+        </div>
+        
         <div class="header-content">
-            <img src="{% static 'assets/img/logo.png' %}" alt="Logo" class="logo">
-            <nav class="main-nav-actions">
                 <div class="nav-block">
                     <img src="{% static 'assets/img/Home page red.jpg' %}" alt="Home" class="user-icon">
                     <a class="btn login-btn" href="/">HOME</a>
                 </div>
-                <div class="nav-block">
+                {% if user.is_authenticated %}
+                  <div class="nav-block">
                     <img src="{% static 'assets/img/Shopping cart.jpg' %}" alt="Cart" class="user-icon">
                     <a href="{% url 'view_cart' %}" class="btn login-btn">Go to Cart</a>
                 </div>
-                <div class="nav-block">
-                    <img src="{% static 'assets/img/Logo before login.jpg' %}" alt="Reservation" class="user-icon">
-                    <a href="{% url 'reservation' %}" class="btn login-btn">Reservation</a>
-                </div>
-                {% if user.is_authenticated %}
                 <form method="POST" action="{% url 'logout' %}" class="nav-block" style="margin:0;">
                     {% csrf_token %}
                     <img src="{% static 'assets/img/Logo after login.webp' %}" alt="Logout" class="user-icon">
@@ -42,16 +51,6 @@
                     <a href="{% url 'registration' %}" class="btn login-btn">Register</a>
                 </div>
                 {% endif %}
-            </nav>
-        </div>
-        <div class="header-text">
-            {% if user.is_authenticated %}
-                <h1>Welcome {{user.username}} to Eyang Food Delivery Services</h1>
-                <h2>Explore our delicious menu options and order your favorite dishes!</h2>
-            {% else %}
-                <h1>Welcome to Eyang Food Delivery Services</h1>
-                <h2>Explore our delicious menu options and order your favorite dishes!</h2>
-            {% endif %}
         </div>
     </header>
     <main>
@@ -77,6 +76,24 @@
                 </div>
                 <button type="submit" class="login-btn">Filter</button>
                 <a href="{% url 'browse_menus' %}" class="login-btn reset-btn">Reset</a>
+                <span id="realtime-date"></span>
+                <script>
+function updateDate() {
+    const now = new Date();
+    // Example format: Monday, June 10, 2025 07:15 PM
+    const options = {
+        weekday: 'long', year: 'numeric', month: 'long',
+        day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit',
+        hour12: true
+    };
+    document.getElementById('realtime-date').textContent = now.toLocaleString('en-US', options);
+}
+
+// Update every second
+setInterval(updateDate, 1000);
+// Run once at start
+updateDate();
+</script>
             </form>
             {% endif %}
             <ul class="menu-grid">

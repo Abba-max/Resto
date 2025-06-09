@@ -11,6 +11,24 @@
 <body>
     <header>
         <h1>{{vendor.restaurant_name}} Dashboard</h1>
+                     <span id="realtime-date"></span>
+                <script>
+function updateDate() {
+    const now = new Date();
+    // Example format: Monday, June 10, 2025 07:15 PM
+    const options = {
+        weekday: 'long', year: 'numeric', month: 'long',
+        day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit',
+        hour12: true
+    };
+    document.getElementById('realtime-date').textContent = now.toLocaleString('en-US', options);
+}
+
+// Update every second
+setInterval(updateDate, 1000);
+// Run once at start
+updateDate();
+</script>
         <nav>
             <a href="{% url 'vendor_dashboard' %}">Home</a>
             <a href="{% url 'logout' %}">Logout</a>

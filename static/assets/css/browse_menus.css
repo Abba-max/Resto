@@ -2,48 +2,71 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Arial, sans-serif;
-    background: #f9f9f9;
+    font:100 ;
+    /* background: #f9f9f9; */
     min-height: 100vh;
     display: flex;
+    background:url(..img/Logo_IUSJ.jpg);
     flex-direction: column;
 }
 
 header {
     background: #343a40;
-    color: #fff;
+    color: #292323;
     padding: 0 0 1rem 0;
+    background:url(../img/Accueil_IUSJ.jpg);
+    border-radius: 20%;
 }
 
-.header-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1.2rem;
-    padding: 1rem 2vw 0.5rem 2vw;
+.header-text {
+    text-align: center;
+    margin-top: 0.7rem;
+}
+
+.header-text h1 {
+    font-size: 2.2rem;
+    margin: 0.5rem 0 0.2rem 0;
+}
+
+.header-text h2 {
+    font-size: 1.15rem;
+    font-weight: normal;
+    margin: 0 0 1.2rem 0;
 }
 
 .logo {
     height: 60px;
     width: auto;
+    margin-left: 10px;
     max-width: 28vw;
     flex-shrink: 0;
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
-.main-nav-actions {
+.header-content {
     display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap; /* keep horizontal on all screens */
+    gap: 2cm;
+    padding: 1rem 2vw 0.5rem 2vw;
+    overflow-x: auto;  /* enable horizontal scroll on overflow */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .nav-block,
-.main-nav-actions form.nav-block {
+.header-content form.nav-block {
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 0.4rem;
     margin: 0;
     padding: 0;
+    white-space: nowrap;
 }
 
 .user-icon {
@@ -72,23 +95,7 @@ header {
 }
 
 .btn.login-btn:hover, .login-btn:hover, .reset-btn:hover {
-    background: #0056b3;
-}
-
-.header-text {
-    text-align: center;
-    margin-top: 0.7rem;
-}
-
-.header-text h1 {
-    font-size: 2.2rem;
-    margin: 0.5rem 0 0.2rem 0;
-}
-
-.header-text h2 {
-    font-size: 1.15rem;
-    font-weight: normal;
-    margin: 0 0 1.2rem 0;
+    background: #3f7fc4;
 }
 
 main {
@@ -114,6 +121,8 @@ main {
 
 .filter-group {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     gap: 0.3rem;
 }
@@ -160,8 +169,8 @@ main {
 }
 
 .menu-image {
-    width: 120px;
-    height: 120px;
+    width: 300px;
+    height: 200px;
     object-fit: cover;
     border-radius: 10px;
     background: #fcfcfc;
@@ -246,31 +255,26 @@ main {
 
 /* Footer style */
 .footer {
+    display:flex;
+    align-items: center;
+    justify-content: center;
     background: #343a40;
     color: #fff;
     text-align: center;
+    height:50px;
     padding: 0.8rem 0;
     border-radius: 14px 14px 0 0;
     margin-top: 2rem;
+    box-sizing: border-box;
 }
 
 /* Responsive Styles */
 @media (max-width: 1100px) {
-    .header-content {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 1rem;
-        padding: 0.7rem 3vw 0.5rem 3vw;
-    }
     .logo {
         height: 48px;
         max-width: 50vw;
         margin: 0 auto 0.8rem auto;
         display: block;
-    }
-    .main-nav-actions {
-        justify-content: center;
-        gap: 1rem;
     }
 }
 
@@ -309,16 +313,6 @@ main {
     }
     .header-text h2 {
         font-size: 0.95rem;
-    }
-    .main-nav-actions {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0.7rem;
-    }
-    .nav-block,
-    .main-nav-actions form.nav-block {
-        justify-content: flex-start;
-        width: 100%;
     }
     .logo {
         height: 36px;
