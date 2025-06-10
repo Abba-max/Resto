@@ -51,6 +51,9 @@
     </header>
     <main>
         <section class="menu-list">
+            <center>
+             <span style="justify-content:center;" id="realtime-date" ></span>
+            </center>
             {% if user.is_authenticated %}
             <form method="get" class="filters">
                 <div class="filter-group">
@@ -72,8 +75,20 @@
                 </div>
                 <button type="submit" class="login-btn">Filter</button>
                 <a href="{% url 'browse_menus' %}" class="login-btn reset-btn">Reset</a>
-                <span id="realtime-date" style="margin-left:1.2rem;"></span>
-                <script>
+               <div stlye="display:flex;justify-content:center;align-items:center;">
+                
+               </div>
+          
+            </form>
+            {% endif %}
+            <center>
+            <div stlye="display:flex;justify-content:center;align-items:center;">
+                 {%if user.is_authenticated%}
+                  <h2>Discover Our Incredible Food Menus. Good Food, Great mood!! 😊</h2>
+                    {%else%}
+             <h2>The Great Cooks of Eyang 👩‍🍳 👨‍🍳! Log in fast and Order!!😉</h2>
+                    {% endif %}      
+             <script>
 function updateDate() {
     const now = new Date();
     const options = {
@@ -86,8 +101,9 @@ function updateDate() {
 setInterval(updateDate, 1000);
 updateDate();
                 </script>
-            </form>
-            {% endif %}
+            </div>
+            </center>
+            
             <ul class="menu-grid">
                 {% for menu in menus %}
                 <li class="menu-item">
