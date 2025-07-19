@@ -34,7 +34,7 @@ Last console sign-in
 
 3. **Run the application:**
    ```bash
-   python app.py
+   python manage.py runserver
    ```
 
 4. **Access the web interface:**
